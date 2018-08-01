@@ -1,4 +1,4 @@
-module EasyredmineSelfSignup
+module EasyredmineHelpdeskSelfSignup
   
   
 end
