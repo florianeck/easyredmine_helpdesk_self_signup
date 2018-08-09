@@ -2,6 +2,34 @@ module EasyredmineHelpdeskSelfSignup::UserExtension
   
   extend ActiveSupport::Concern
   
+  included do
+    belongs_to :easy_contact
+    after_create :setup_easy_contact, :assign_to_helpdesk_projects
+  end
+  
+  def easy_contact_by_users_email
+    cf_id = EasyContactCustomField.find_by_internal_name("easy_contacts_email").id
+    matching_email = CustomValue.find_by(custom_field_id: cf_id, value: self.email_address.address)
+    matching_email.try(:customized)
+  end
+  
+  def setup_easy_contact
+    return if self.email_address.nil?
+    
+    ec = easy_contact || easy_contact_by_users_email
+    if ec.present? && easy_contact.nil?
+      self.update_column(:easy_contact_id, ec.id)
+    elsif ec.nil?
+      cf_id = EasyContactCustomField.find_by_internal_name("easy_contacts_email").id
+      
+      ec = EasyContact.new(firstname: firstname, lastname: lastname,
+      custom_field_values: {cf_id => self.email_address.address})
+      
+      ec.save
+      self.update_column(:easy_contact_id, ec.id)
+    end  
+  end
+  
   def assign_to_helpdesk_projects
     matcher = EasyredmineHelpdeskSelfSignup::MailDomainMatcher.new(self.email_address.address)
     

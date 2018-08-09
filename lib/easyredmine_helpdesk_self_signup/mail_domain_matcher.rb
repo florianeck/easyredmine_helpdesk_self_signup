@@ -27,7 +27,7 @@ class EasyredmineHelpdeskSelfSignup::MailDomainMatcher
   end
   
   def get_project_matchings
-    @project_matchings = mail_domains.map {|d| EasyHelpdeskProjectMatching.find_by(email_field: 'from', domain_name: d) }.compact
+    @project_matchings = mail_domains.map {|d| EasyHelpdeskProjectMatching.where(email_field: 'from').where("domain_name LIKE '%#{d}'").first }.compact
   end
   
   
