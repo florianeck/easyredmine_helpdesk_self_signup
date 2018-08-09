@@ -1,6 +1,6 @@
 <%= toggling_fieldset(l(:label_easy_helpdesk_self_signup), :collapsed => true) do %>
 <p>
   <%= f.label :self_signup_default_role %>
-  <%= f.text_field :self_signup_default_role %>
+  <%= f.select :self_signup_default_role, User.current.managed_roles(@easy_helpdesk_project.project).map {|role| [role, role.id]} %>
 </p>
 <% end %>
