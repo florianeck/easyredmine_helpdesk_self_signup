@@ -1,0 +1,6 @@
+de:
+  label_easy_helpdesk_self_signup: Self-Signup Einstellungen
+  activerecord:
+    attributes:
+      easy_helpdesk_project:
+        self_signup_default_role: Rolle nach Self-Signup
