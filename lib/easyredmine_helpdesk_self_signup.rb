@@ -7,8 +7,5 @@ require "easyredmine_helpdesk_self_signup/hooks"
 
 Rails.application.config.after_initialize do
   User.send :include, EasyredmineHelpdeskSelfSignup::UserExtension
-  EasyHelpdeskProject.safe_attributes 'self_signup_default_role'
+  EasyHelpdeskProject.safe_attributes 'self_signup_default_role', 'self_signup_easy_user_type_id'
 end
-#
-# ApplicationController.send :include, EasyredmineSipgateHelper
-# ApplicationController.send :helper, :easyredmine_sipgate

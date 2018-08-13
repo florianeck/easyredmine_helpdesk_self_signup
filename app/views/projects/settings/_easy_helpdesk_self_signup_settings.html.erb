@@ -3,4 +3,8 @@
   <%= f.label :self_signup_default_role %>
   <%= f.select :self_signup_default_role, User.current.managed_roles(@easy_helpdesk_project.project).map {|role| [role, role.id]} %>
 </p>
+<p>
+  <%= f.label :self_signup_easy_user_type_id %>
+  <%= f.select :self_signup_easy_user_type_id, EasyUserType.all.map {|e| [e.name, e.id]} %>
+</p>
 <% end %>

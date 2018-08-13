@@ -42,7 +42,10 @@ module EasyredmineHelpdeskSelfSignup::UserExtension
       member = Member.find_or_create_by(user_id: self.id, project_id: matching.easy_helpdesk_project.project_id)
       member.role_ids = ([matching.easy_helpdesk_project.self_signup_default_role])
       member.save
+      self.easy_user_type_id = matching.easy_helpdesk_project.self_signup_easy_user_type_id
     end
+    
+    self.save
   end
   
   def assign_contact_to_projects
