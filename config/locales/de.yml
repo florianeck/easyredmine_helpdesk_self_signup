@@ -1,6 +1,8 @@
 de:
   label_easy_helpdesk_self_signup: Self-Signup Einstellungen
+  label_easy_helpdesk_self_signup_disabled: '-- Self-Signup deaktiviert --'
   activerecord:
     attributes:
       easy_helpdesk_project:
         self_signup_default_role: Rolle nach Self-Signup
+        self_signup_notify_email: E-Mail für Benachrichtungung

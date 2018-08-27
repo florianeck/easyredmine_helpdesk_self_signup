@@ -1,6 +1,8 @@
 en:
   label_easy_helpdesk_self_signup: Self-Signup Settings
+  label_easy_helpdesk_self_signup_disabled: '-- Self-Signup disabled --'
   activerecord:
     attributes:
       easy_helpdesk_project:
         self_signup_default_role: Self-Signup default role
+        self_signup_notify_email: Notification e-mail recepient

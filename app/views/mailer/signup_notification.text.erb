@@ -1,0 +1,15 @@
+The following self-signup was registered:
+User Name: <%= @user.name %>
+User Login: <%= @user.login %>
+User Email: <%= @user.email_address.address %>
+Link to edit user: <%= edit_user_url(@user) %>
+
+
+<%- if @projects.any? %>
+  User was assigned to the following helpdesk projects
+  <%- @projects.each do |project| %>
+    <%= project_url(project) %>
+  <% end %>
+<%- else %>
+  user was not assigned to any helpdesk projects
+<%- end %>
