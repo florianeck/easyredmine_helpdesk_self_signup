@@ -17,5 +17,5 @@ Setting.define_setting(:self_signup_default_notify_mail, { default: 'test@test.c
 Rails.application.config.after_initialize do
   User.send :include, EasyredmineHelpdeskSelfSignup::UserExtension
   EasyContact.send :include, EasyredmineHelpdeskSelfSignup::EasyContactExtension
-  EasyHelpdeskProject.safe_attributes 'self_signup_default_role', 'self_signup_easy_user_type_id'
+  EasyHelpdeskProject.safe_attributes 'self_signup_default_role', 'self_signup_easy_user_type_id', 'self_signup_notify_email'
 end

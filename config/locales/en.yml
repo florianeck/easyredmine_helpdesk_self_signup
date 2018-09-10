@@ -1,6 +1,7 @@
 en:
   label_easy_helpdesk_self_signup: Self-Signup Settings
   label_easy_helpdesk_self_signup_disabled: '-- Self-Signup disabled --'
+  setting_self_signup_default_notify_mail: E-Mail für Info/Signup
   activerecord:
     attributes:
       easy_helpdesk_project:
