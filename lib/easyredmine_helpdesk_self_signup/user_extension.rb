@@ -78,7 +78,7 @@ module EasyredmineHelpdeskSelfSignup::UserExtension
     
     emails << Setting[:self_signup_default_notify_mail] if emails.empty?
     
-    EasyredmineHelpdeskSelfSignupMailer.signup_notification(self).deliver
+    EasyredmineHelpdeskSelfSignupMailer.signup_notification(self, emails).deliver
   end
   
 end
